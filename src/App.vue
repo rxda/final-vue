@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import Compute from './components/Compute.vue'
-import Watch from './components/Watch.vue'
+import Compute from './components/2.Compute.vue'
+import Watch from './components/3.Watch.vue'
+import WatchEffect from './components/4.WatchEffect.vue'
+import TagRef from './components/5.TagRef.vue';
+import PersonList from './components/6.Pros/PersonList.vue';
+import LifeCycle from './components/7.LifeCycle.vue';
+import Cat from './components/8.hooks/Cat.vue';
 </script>
 
 
 <template>
-  <Watch msg="123"/>
+  <Cat/>
 </template>
 
 <style scoped>
