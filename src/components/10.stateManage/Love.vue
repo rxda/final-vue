@@ -9,18 +9,16 @@
 
 <script setup lang='ts'>
   import axios from 'axios';
-  import { computed, ref } from 'vue';
+  import { computed } from 'vue';
+  import { useSentencesStore } from './store/love';
 
-  const sentences = ref<Array<{id:number, sentence:string}>>([
-   
-  ])
+  const sentencesStore = useSentencesStore()
 
-  const index = computed(()=>sentences.value.length)
+  const index = computed(()=>sentencesStore.sentences.length)
 
   const getOne = async ()=>{
     let sentenceResult = await axios.get('https://api.uomg.com/api/rand.qinghua')
-    sentences.value.unshift({id:index.value+1, sentence:sentenceResult.data.content })
-    console.log(sentences.value)
+    sentencesStore.sentences.unshift({id:index.value+1, sentence:sentenceResult.data.content })
  }
 </script>
 

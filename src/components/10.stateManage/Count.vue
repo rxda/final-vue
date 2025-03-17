@@ -1,6 +1,6 @@
 <template>
   <div class='count'>
-    <h2>当前计数为：{{count}}</h2>
+    <h2>当前计数为：{{countStore.count}}</h2>
     <select v-model.number="step">
       <option v-for="i in 5" :value='i' :key="i">{{ i }}</option>
     </select>
@@ -11,16 +11,18 @@
 
 <script setup lang='ts'>
   import { ref } from 'vue';
+  import { useCountStore } from './store/count';
 
+  const countStore = useCountStore()
   const step = ref(1)
-  const count = ref(0)
+
 
   const add = ()=>{
-    count.value +=step.value
+    countStore.count += step.value
   }
 
   const minus = ()=>{
-    count.value -=step.value
+    countStore.count -= step.value
   }
 </script>
 
